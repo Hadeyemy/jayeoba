@@ -215,6 +215,13 @@
       }
     }
   </style>
+  <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("YOUR_USER_ID");  // Replace with your EmailJS User ID
+  })();
+</script>
+
 </head>
 <body>
   <header>
@@ -346,23 +353,35 @@
       window.addEventListener('resize', updateCarousel);
       updateCarousel();
 
-      const contactForm = document.getElementById('contactForm');
       contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = contactForm.name.value.trim();
-        const email = contactForm.email.value.trim();
-        const message = contactForm.message.value.trim();
-        if (!name || !email || !message) {
-          alert('Please fill out all fields.');
-          return;
-        }
-        if (!email.includes('@') || !email.includes('.')) {
-          alert('Please enter a valid email.');
-          return;
-        }
-        alert('Thank you for your message, ' + name + '!');
-        contactForm.reset();
-      });
+  e.preventDefault();
+  const name = contactForm.name.value.trim();
+  const email = contactForm.email.value.trim();
+  const message = contactForm.message.value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill out all fields.');
+    return;
+  }
+  if (!email.includes('@') || !email.includes('.')) {
+    alert('Please enter a valid email.');
+    return;
+  }
+
+  emailjs.send("service_m0gy9ld", "service_m0gy9ld", {
+    from_name: name,
+    from_email: email,
+    message: message
+  })
+  .then(() => {
+    alert('Thank you for your message, ' + name + '!');
+    contactForm.reset();
+  }, (error) => {
+    alert('Oops! Something went wrong. Please try again later.');
+    console.error('EmailJS error:', error);
+  });
+});
+
     });
   </script>
 </body>
