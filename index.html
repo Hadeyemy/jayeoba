@@ -1,40 +1,320 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ms. Aderanti Oluyemi Jayeoba - Biography</title>
+  <title>Ms. Aderanti Oluyemi Jayeoba- Biography</title>
   <style>
-    /* [Your existing CSS remains unchanged] */
-  </style>
+    :root {
+      --primary-color: #1e3a8a;
+      --text-color: #333;
+      --background-color: #f4f7ff;
+      --section-bg: #ffffff;
+      --border-radius: 12px;
+    }
 
-  <!-- EmailJS SDK -->
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 1rem 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    .menu-close {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 1.5rem;
+      margin-left: 1rem;
+    }
+
+    main {
+      margin: 2rem auto;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .bio-section {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      background-color: var(--section-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+    }
+
+    .bio-section img {
+      width: 300px;
+      border-radius: var(--border-radius);
+      object-fit: cover;
+    }
+
+    .bio-text {
+      flex: 1;
+    }
+
+    section {
+      background-color: var(--section-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      border-radius: var(--border-radius);
+    }
+
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-buttons button {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .bio-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        width: 100%;
+        padding: 1rem;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
   <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init("TWKln3bJB3jTN9OCF");
-    })();
-  </script>
+<script>
+  (function() {
+    emailjs.init("YOUR_USER_ID");  // Replace with your EmailJS User ID
+  })();
+</script>
+
 </head>
 <body>
-  <!-- [Your existing header, main sections, and footer remain unchanged] -->
+  <header>
+    <div class="container">
+      <div style="display:flex; align-items:center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995527.png" alt="Logo" class="logo" />
+        <h1>Aderanti Oluyemi Jayeoba</h1>
+      </div>
+      <nav>
+        <div class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" tabindex="0" role="button">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="menu-close" id="menu-close">&times;</div>
+        <ul id="nav-list">
+          <li><a href="#bio">Biography</a></li>
+          <li><a href="#publications">Education Background</a></li>
+          <li><a href="#photos">Photo Speak</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    -</div>
+  </header>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <form id="contactForm">
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
-      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+  <main>
+    <section class="bio-section" id="bio">
+      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400&q=80" alt="Aderanti Oluyemi Jayeoba">
+      <div class="bio-text">
+        <h2 class="section-title">Biography</h2>
+        <p>
+          Ms ADERANTI OLUYEMI JAYEOBA was born to Pa Alfred (late) and Mrs Bola Jayeoba ( both natives of Ibadan)over fifty years ago. She attended St Paul School Oke Ibadan between 1975 and 1981 for her Primary Education. Ms Jayeoba received her Secondary School Education at Queen of Apostle Oluyoro Ibadan between 1982 and 1988.
+          To qualify as a Professional Environmental Health Officer, Ms Jayeoba proceeded to the famous School of Hygiene Eleyele Ibadan, now College of Health and Science Technology where she obtained ND and HND.
+          Having bagged her qualification as a certified Professional Environmental Health Officer, Ms Jayeoba secured her first appointment with you Ibadan North Local Government where she worked for few years before being transferred to Ibadan North West Local Government and later to Ibadan North East Local Government where she is presently. In her career as Environmental Health Officer, Ms Jayeoba had risen through the ranks to become Chief Environmental Health Officer.
+          Iya Jaye as she is fondly called is a hardworking officer who has been so committed to her duty.
+          She is a sociable personality. She is presently the President of Adorable Sisters' Stakeholders Club.
+          Ms Aderanti Oluyemi Jayeoba is married and blessed with children.
+        </p>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2 class="section-title">Education Background</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div style="background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h3 style="margin-bottom: 0.5rem; color: #1e3a8a;">📘 St. Paul School, Oke Ibadan </h3>
+          <p style="font-size: 0.95rem;">Primary School Education <strong>1975-1981</strong></p>
+        </div>
+        <div style="background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h3 style="margin-bottom: 0.5rem; color: #1e3a8a;">🎓 Queens of Apostle, Oluyoro </h3>
+          <p style="font-size: 0.95rem;">Secondary School Education <strong>1982-1988</strong></p>
+        </div>
+        <div style="background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h3 style="margin-bottom: 0.5rem; color: #1e3a8a;">📘 College of Health and Science Technology</h3>
+          <p style="font-size: 0.95rem;">National Diploma , <strong> </strong></p>
+        </div>
+           <div style="background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h3 style="margin-bottom: 0.5rem; color: #1e3a8a;">🎓 College of Health and Science Technology</h3>
+          <p style="font-size: 0.95rem;">Higher National Diploma, <strong> </strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="photos">
+      <h2 class="section-title">Photo Speak</h2>
+      <div class="carousel-container">
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-slide"><img src="https://picsum.photos/id/1011/600/400" alt="Photo 1"></div>
+          <div class="carousel-slide"><img src="https://picsum.photos/id/1012/600/400" alt="Photo 2"></div>
+          <div class="carousel-slide"><img src="https://picsum.photos/id/1015/600/400" alt="Photo 3"></div>
+          <div class="carousel-slide"><img src="https://picsum.photos/id/1016/600/400" alt="Photo 4"></div>
+          <div class="carousel-slide"><img src="https://picsum.photos/id/1020/600/400" alt="Photo 5"></div>
+        </div>
+        <div class="carousel-buttons">
+          <button id="prev">&#8592;</button>
+          <button id="next">&#8594;</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <form id="contactForm">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
 
   <footer>&copy; 2025 Ms Aderanti Oluyemi Jayeoba. All rights reserved.</footer>
 
   <script>
+        emailjs.init("msaGWV-9IsrNpgG3_"); // 🔁 Replace with your actual EmailJS public key
     document.addEventListener('DOMContentLoaded', () => {
-      // Navbar toggle
       const toggle = document.getElementById('menu-toggle');
       const closeBtn = document.getElementById('menu-close');
       const navList = document.getElementById('nav-list');
@@ -49,7 +329,6 @@
         closeBtn.style.display = 'none';
       });
 
-      // Carousel
       const track = document.getElementById('carousel-track');
       const slides = Array.from(track.children);
       const prevBtn = document.getElementById('prev');
@@ -74,40 +353,26 @@
       window.addEventListener('resize', updateCarousel);
       updateCarousel();
 
-      // Contact form logic
       const contactForm = document.getElementById('contactForm');
       contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const name = contactForm.name.value.trim();
-        const email = contactForm.email.value.trim();
-        const message = contactForm.message.value.trim();
-
-        if (!name || !email || !message) {
-          alert('Please fill out all fields.');
-          return;
-        }
-
-        if (!email.includes('@') || !email.includes('.')) {
-          alert('Please enter a valid email.');
-          return;
-        }
-
         emailjs.send("service_m0gy9ld", "template_7sww6vp", {
-          from_name: name,
-          from_email: email,
-          message: message
+          from_name: contactForm.name.value,
+          from_email: contactForm.email.value,
+          message: contactForm.message.value
         })
         .then(() => {
-          alert('Thank you for your message, ' + name + '!');
+          alert("✅ Message sent successfully!");
           contactForm.reset();
         })
         .catch((error) => {
-          alert('Oops! Something went wrong. Please try again later.');
-          console.error('EmailJS error:', error);
+          console.error("EmailJS Error:", error);
+          alert("❌ Failed to send message. Please try again later.");
         });
       });
     });
   </script>
 </body>
 </html>
+  
