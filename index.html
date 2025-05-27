@@ -144,12 +144,17 @@
 
     .carousel-slide {
       min-width: 100%;
-
+       display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center; 
     }
 
     .carousel-slide img {
-      width: 100%;
-     border-radius: var(--border-radius);
+      width: 50%;
+       display: block;
+      margin-left: auto;
+        margin-right: auto;
+      border-radius: var(--border-radius);
     }
 
     .carousel-buttons {
